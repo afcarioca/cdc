@@ -2,25 +2,22 @@ package br.com.deveficiente.youtubeapicdc.detalhelivro;
 
 import java.util.Optional;
 
-
-public class IsbnUnicoValidator extends CampoUnicoLivoValidator {
+public class TituloDoLivroUnicoValidator extends CampoUnicoLivoValidator {
 
 	private LivroRepository livroRepository;
 
-	public IsbnUnicoValidator(LivroRepository livroRepository) {
+	public TituloDoLivroUnicoValidator(LivroRepository livroRepository) {
 		this.livroRepository = livroRepository;
 	}
 
 	@Override
 	public Optional<Livro> buscaLivroPorCampo(NovoLivroForm novoLivroForm) {
-		return livroRepository.findByIsbn(novoLivroForm.getIsbn());
+		return livroRepository.findByTitulo(novoLivroForm.getTitulo());
 	}
 
 	@Override
 	protected String getNomeCampoInvalido() {
-		return "isbn";
+		return "Título";
 	}
-
-	
 
 }
